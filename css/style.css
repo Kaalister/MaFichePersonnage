@@ -1,0 +1,105 @@
+body {
+	background-image: url(../images/background.jpg);
+	background-size: 100%;
+	margin: 32px;
+}
+
+h1 {
+	font-family: luminari; 
+}
+
+input {
+	width: 10%;
+	background-color: transparent;
+    border: none;
+}
+
+.shadow_in {
+	box-shadow: inset 0px 0px 5px #353535;
+}
+
+.shadow_out {
+	box-shadow: inset 0px 0px 5px #353535;
+}
+
+.input_stat {
+	width: 5% !important;
+	border-bottom: none !important;
+	margin: 0px !important;
+}
+
+#pv, #psm {
+	width: 5%;
+	border-bottom: none;
+	margin: 0px;
+}
+
+.go_left {
+	display: inline-block;
+	width: 50%;
+}
+
+.go_right {
+	display: inline-block;
+	float: right;
+	margin-right: 15%;
+}
+
+.name_input {
+	width: 6rem;
+	text-align: center;
+}
+
+.desc_input {
+	width: 26rem;
+	text-align: center;
+}
+
+.material-icons:hover {
+	cursor: pointer;
+}
+
+#edit_button, #back_button {
+	float: right;
+    color: white;
+    background: #80513a;
+    border-radius: 1em;
+    padding: 1rem
+}
+
+#avatar, #avatar_def {
+	float: right;
+	margin-right: 7rem;
+}
+
+.add_button {
+	background-color: #80513a;
+    border-radius: 1rem;
+    color: white;
+    padding: 0.5rem;
+}
+
+li:before{
+	content: "- ";
+}
+
+.marge_top {
+	margin-top: 3rem;
+}
+
+#nom {
+	text-align: center;
+	margin-right: 7rem;
+}
+
+#start_button {
+	margin-top: 20%;
+}
+
+.btn {
+	background: #80513a;
+}
+
+.btn:hover {
+	background: #a9694a;
+}

@@ -1,0 +1,41 @@
+<div id="page_edit">
+	<div class="go_right">
+		<div style="text-align: center; display: inline-block; float: right; width: 50%">
+			<img id="avatar_def" height="200" width="180" ><br>
+			<div style="float: right;">
+				<input type="text" class='browser-default name_input' id="prenom_def"/>
+				<input type="text" class='browser-default name_input' id="nom_def"/> ,
+				<input type="number" class='browser-default' id="age_def"/><br>
+				<input type="text" class='browser-default desc_input' id="work_def"/>
+			</div>
+		</div>
+ 	</div>
+	<div class="go_left">
+		<h5>Compétences :</h5>
+		<input type="text" class='browser-default name_input shadow_out' id="new_name_comp" value="Nom"/> :
+		<input type="text" class='browser-default desc_input shadow_out' id="new_desc_comp" value="Decription"/>
+		<i class="material-icons tiny add_button" id="new_competence_def">add</i><br>
+		<div id="competences_def" style="padding-left: 2%">
+ 		</div>
+ 	</div>
+
+ 	<div id="pv_psm_def" class="marge_top">
+ 		PV :
+ 		<input id="pv_def" class='browser-default' type="number" min="0" /><br>
+ 		PSM :
+ 		<input id="psm_def" class='browser-default' type="number" min="0" />
+ 	</div>
+ 	
+ 	<h5 class="marge_top">Bio :</h5>
+ 	<textarea class='browser-default' id="bio_def" style="height: 140px; width: 100%;"></textarea>
+ 	<p>
+ 		<h5>Stats :</h5>
+ 		<input type="text" class='browser-default name_input shadow_out' id="new_name_stat" value="Nom"/>
+ 		<input type="number" class='browser-default shadow_out' id="new_value_stat" placeholder="Valeur" style="text-align: center;" />
+ 		<i class="material-icons tiny add_button" id="new_stat_def">add</i>
+ 		<ul id="stats_def">
+ 		</ul>
+ 	</p>
+ 	<h5>Description :</h5>
+ 	<textarea class='browser-default' id="desc_def" style="height: 140px; width: 100%;"></textarea>
+</div>

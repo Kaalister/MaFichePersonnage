@@ -1,0 +1,22 @@
+{
+  "Player_Def": {
+    "competences": {
+    },
+    "pv": 20,
+    "psm": 20,
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "age": "0",
+    "work": "Travail/Type/Role",
+    "bio": "Biographie",
+    "stat": {
+    },
+    "desc": "Description"
+  },
+  "Player": {
+    "pv": 0,
+    "psm": 0,
+    "stat": {
+    }
+  }
+}

@@ -64,6 +64,7 @@ class Page
   			}, false);
 		});
 
+		//ouvre le profil défault pour créer un nouveau personnage
 		tmp = jQuery("#new_perso");
 		tmp.on('click', () => {
 			var txt = null;
@@ -91,8 +92,10 @@ class Page
 			this.toggle_content("perso");
 		});
 		
+		//lance télécharge le fichier de sauvgarde
 		tmp = jQuery("#save_btn");
 		tmp.on('click', () => {
+			this.Player.save_inventory();
 			var txt = JSON.stringify(page);
 			download(page.Player_Def.firstName + page.Player_Def.lastName + ".jdr.json", txt);
 		});
@@ -108,24 +111,25 @@ class Page
 	//génère le code html de la page perso
 	generate_perso_page()
 	{
-		var page = this;
 		jQuery("#title_global").text(this.Player_Def.firstName + " " + this.Player_Def.lastName);
 		jQuery("#competences").append(do_list(this.Player_Def.competences));
 		jQuery("#caract").append(do_caract_list(this, "page_perso"));
 		this.Player.set_listener_on_caract(this);
-		var name = page.Player_Def.firstName +
-					" " + page.Player_Def.lastName +
-					", " + page.Player_Def.age + " ans" + "<br>"
-					+ page.Player_Def.work;
+		var name = this.Player_Def.firstName +
+					" " + this.Player_Def.lastName +
+					", " + this.Player_Def.age + " ans" + "<br>"
+					+ this.Player_Def.work;
 		jQuery("#nom").append(name);
-		jQuery("#bio").append("<h5>Bio :</h5>" + convert_to_html(page.Player_Def.bio));
+		jQuery("#bio").append("<h5>Bio :</h5>" + convert_to_html(this.Player_Def.bio));
 		jQuery("#stats").append(do_stat_list(this, "page_perso"));
 		this.Player.set_listener_on_stat(this);
-		jQuery("#desc").append(convert_to_html(page.Player_Def.desc));
-		if (page.Player_Def.avatar)
-			jQuery("#avatar").attr('src', page.Player_Def.avatar);
+		jQuery("#desc").append(convert_to_html(this.Player_Def.desc));
+		if (this.Player_Def.avatar)
+			jQuery("#avatar").attr('src', this.Player_Def.avatar);
 		else
 			jQuery("#avatar").attr('src', '../images/avatar.png');
+		jQuery("#inventory").append(do_inventory_list(this.Player.inventory));
+		this.Player.set_listener_on_inventory(this.Player.inventory);
 	}
 
 	//genere le code html de la page edit

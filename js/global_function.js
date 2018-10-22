@@ -35,6 +35,17 @@ function do_stat_list(list, src_page = null)
 	return resultat;
 }
 
+function do_inventory_list(list)
+{
+	var resultat = "";
+		for (var i in list) {
+			if (list.hasOwnProperty(i)) {
+				resultat += "<li class='li_item' ><div class='case name_item browser-default' id='name_item'>" + i +"</div><div class='case desc_item browser-default' id='desc_item'>" + list[i].desc + "</div><input type='number' class='case nb_item browser-default' id='nb_item' min='0' value='" + list[i].nb + "'><i class='material-icons tiny add_button' id='remove_" + i + "'>remove</i></li>";
+			}
+	}
+	return resultat;
+}
+
 function do_caract_list(list, src_page = null)
 {
 	var resultat = "";

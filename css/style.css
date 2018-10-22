@@ -15,7 +15,7 @@ input {
     border: none;
 }
 
-li:before{
+li:not(.li_item):before{
 	content: "- ";
 }
 
@@ -91,6 +91,7 @@ li:before{
 .input_nbr {
     width: 10%;
     min-width: 40px;
+    text-align: center;
 }
 
 .info_name_input {
@@ -99,6 +100,42 @@ li:before{
     text-align: center;
 }
 
+#new_desc_item {
+	width: 55%;
+	height: 2rem;
+}
+
+#new_name_item {
+	width: 35%;
+	height: 2rem;
+}
+
+#new_nb_item {
+	width: 45px;
+	height: 2rem;
+}
+
+.desc_item {
+	width: 55%;
+}
+
+.name_item {
+	width: 35%;
+}
+
+.nb_item {
+	width: 45px;
+}
+
+.case {
+	float: left;
+    border: black !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+    height: 1.6rem !important;
+    margin-left: -1px;
+    text-align: center;
+}
 /*	END PAGE PERSO CSS	*/
 
 /*	PAGE EDIT CSS	*/

@@ -3,6 +3,7 @@ class Player {
 	{
 		this.caract = player.caract;
 		this.stat = player.stat;
+		this.inventory = player.inventory;
 
 		this.init();
 	}
@@ -11,14 +12,23 @@ class Player {
 	{
 		var tmp = null;
 
-		tmp = jQuery("#pv");
-		tmp.on('change', () => {
-			this.pv = -1 * ($("#pv").attr('max') - $("#pv").val());
+		//listener sur le bouton création de d'item
+		tmp = jQuery("#new_item");
+		tmp.on('click', () => {
+			var name = $("#new_name_item").val();
+			var desc = $("#new_desc_item").val();
+			var nb = $("#new_nb_item").val();
+			if (name != "" && name != null && nb != "" && nb != null) {
+				var item = new Item(desc, nb);
+				this.inventory[name] = item;
+				jQuery("#inventory").empty();
+				jQuery("#inventory").append(do_inventory_list(this.inventory));
+				this.set_listener_on_inventory(this.inventory);
+				$("#new_name_item").val("");
+				$("#new_desc_item").val("");
+				$("#new_nb_item").val("");
+			}
 		});
-		tmp = jQuery("#psm");
-		tmp.on('change', () => {
-			this.psm = -1 * ($("#psm").attr('max') - $("#psm").val());
-		});	
 	}
 
 	//fonction qui set les listener des stats players après leur ajout en html
@@ -34,6 +44,26 @@ class Player {
 					list.Player.stat[tmp.data("owner")] = -1 * (list.Player_Def.stat[tmp.data("owner")] - $("#" + tmp.data("owner")).val());
 					if (list.Player.stat[tmp.data("owner")] == 0)
 						list.Player.stat[tmp.data("owner")] = 0;
+				});
+			}
+		}
+	}
+
+	//fonction qui set les listeners sur les remove de chaque item
+	set_listener_on_inventory(inventory)
+	{
+		for (var i in inventory) {
+			if (inventory.hasOwnProperty(i)) {
+				let tmp = null;
+
+				tmp = jQuery("#remove_" + i);
+				tmp.data("owner", i);
+				tmp.on('click', () => {
+						delete inventory[tmp.data("owner")];
+						jQuery("#inventory").empty();
+						jQuery("#inventory").append(do_inventory_list(this.inventory));
+						console.log(this.inventory);
+						this.set_listener_on_inventory(this.inventory);
 				});
 			}
 		}
@@ -55,5 +85,25 @@ class Player {
 				});
 			}
 		}
+	}
+
+	//fonction qui sauvegarde l'inventaire avant le telechargement du fichier
+	save_inventory()
+	{
+		var Player = this;
+		
+		$( "#inventory > li" ).each(function( index ) {
+			let name = "";
+			let desc = "";
+			let nb = "";
+
+			name = $(this).find("#name_item").text();
+			desc = $(this).find("#desc_item").text();
+			nb = $(this).find("#nb_item").val();
+			if (nb == "" ||nb == null)
+				nb = 0;
+			Player.inventory[name].desc = desc;
+			Player.inventory[name].nb = nb;
+		});
 	}
 }

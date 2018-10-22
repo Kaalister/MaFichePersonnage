@@ -19,6 +19,7 @@
 	 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	 	<script src="js/global_function.js"></script>
+	 	<script src="js/item_class.js"></script>
 	 	<script src="js/Player.js"></script>
 	 	<script src="js/Player_Def.js"></script>
 	  	<script src="js/start.js"></script>

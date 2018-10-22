@@ -11,7 +11,7 @@ class Player_Def {
 		this.bio = player.bio;
 		this.work = player.work;
 		this.desc = player.desc;
-		this.avatar = null;
+		this.avatar = player.avatar;
 
 		this.init();
 	}
@@ -40,6 +40,25 @@ class Player_Def {
 				jQuery("#new_value_stat").empty();
 				this.add_new_stat(name, desc);
 			}
+		});
+
+		tmp = jQuery("#avatar_def");
+		tmp.on('click', () => {
+			jQuery("#new_avatar").click();
+		});
+
+		tmp = jQuery("#new_avatar");
+		tmp.on('change', () =>{
+			var preview = $("#avatar_def");
+			var file = tmp.prop("files")[0];
+			var reader = new FileReader();
+			reader.addEventListener('load', (file) => {
+				preview.attr('src', reader.result);
+				this.avatar = $("#avatar_def").attr('src');
+    		}, false);
+    		if (file) {
+    			reader.readAsDataURL(file);
+    		}
 		});
 	}
 

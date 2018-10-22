@@ -29,7 +29,7 @@ class Page
 				jQuery("#start_page").hide();
 				jQuery("#edit_button").hide();
 				jQuery("#page_edit").fadeIn("fast");
-				jQuery("#back_button").fadeIn();
+				jQuery("#back_button").fadeIn("fast");
 			break;
 		}
 	}
@@ -77,18 +77,18 @@ class Page
 		//ouvre le mode edition
 		tmp = jQuery("#edit_button");
 		tmp.on('click', () => {
+			this.clear_page_perso();
 			this.generate_edit_page();
 			this.toggle_content("edit");
-			this.clear_page_perso();
 		});
 
 		//reviens à la page principale
 		tmp = jQuery("#back_button");
 		tmp.on('click', () => {
 			this.save_edition();
+			this.clear_page_edit();
 			this.generate_perso_page();
 			this.toggle_content("perso");
-			this.clear_page_edit();
 		});
 		
 		tmp = jQuery("#save_btn");
@@ -109,23 +109,18 @@ class Page
 	generate_perso_page()
 	{
 		var page = this;
+		jQuery("#title_global").text(this.Player_Def.firstName + " " + this.Player_Def.lastName);
 		jQuery("#competences").append(do_list(this.Player_Def.competences));
-		jQuery("#pv").attr({
-			max : page.Player_Def.pv,
-			value : page.Player.pv + page.Player_Def.pv
-		});
-		jQuery("#psm").attr({
-			max : page.Player_Def.psm,
-			value : page.Player.psm + page.Player_Def.psm
-		});
+		jQuery("#caract").append(do_caract_list(this, "page_perso"));
+		this.Player.set_listener_on_caract(this);
 		var name = page.Player_Def.firstName +
 					" " + page.Player_Def.lastName +
-					", " + page.Player_Def.age + "<br>"
+					", " + page.Player_Def.age + " ans" + "<br>"
 					+ page.Player_Def.work;
 		jQuery("#nom").append(name);
 		jQuery("#bio").append("<h5>Bio :</h5>" + convert_to_html(page.Player_Def.bio));
 		jQuery("#stats").append(do_stat_list(this, "page_perso"));
-		this.Player.set_listener(this);
+		this.Player.set_listener_on_stat(this);
 		jQuery("#desc").append(convert_to_html(page.Player_Def.desc));
 		if (page.Player_Def.avatar)
 			jQuery("#avatar").attr('src', page.Player_Def.avatar);
@@ -137,9 +132,9 @@ class Page
 	generate_edit_page()
 	{
 		var page = this;
+		jQuery("#title_global").text(this.Player_Def.firstName + " " + this.Player_Def.lastName);
 		jQuery("#competences_def").append(do_list_edit(this.Player_Def.competences));
-		jQuery("#pv_def").attr('value', page.Player_Def.pv);
-		jQuery("#psm_def").attr('value', page.Player_Def.psm);
+		jQuery("#caract_def").append(do_caract_list(this, "page_edit"));
 		jQuery("#prenom_def").attr('value', page.Player_Def.firstName);
 		jQuery("#nom_def").attr('value', page.Player_Def.lastName);
 		jQuery("#age_def").attr('value', page.Player_Def.age);
@@ -157,6 +152,7 @@ class Page
 	clear_page_perso()
 	{
 		jQuery("#competences").empty();
+		jQuery("#caract").empty();
 		jQuery("#nom").empty();
 		jQuery("#bio").empty();
 		jQuery("#stats").empty();
@@ -167,6 +163,7 @@ class Page
 	clear_page_edit()
 	{
 		jQuery("#competences_def").empty();
+		jQuery("#caract_def").empty();
 		jQuery("#bio_def").empty();
 		jQuery("#stats_def").empty();
 		jQuery("#desc_def").empty();
@@ -180,8 +177,7 @@ class Page
 		this.Player_Def.age = parseInt(jQuery("#age_def").val());
 		this.Player_Def.work = jQuery("#work_def").val();
 		this.get_competencies();
-		this.Player_Def.pv = parseInt(jQuery("#pv_def").val());
-		this.Player_Def.psm = parseInt(jQuery("#psm_def").val());
+		this.get_caract();
 		this.Player_Def.bio =jQuery("#bio_def").val();
 		this.get_stats();
 		this.Player_Def.desc = jQuery("#desc_def").val();
@@ -215,20 +211,47 @@ class Page
 	get_stats()
 	{
 		let val = null;
+		let id = null;
 		var page = this;
 
 		$( "#stats_def > li > input" ).each(function( index ) {
 			val = parseInt($(this).val(), 10);
+			id = $(this).attr('id');
 			if (isNaN(val)) {
-					val = $(this).attr('id');
-					delete page.Player_Def.stat[val];
-					delete page.Player.stat[val];
+					delete page.Player_Def.stat[id];
+					delete page.Player.stat[id];
+			} else {
+				page.Player_Def.stat[id] = val;
 			}
 		});
 
 		for (var i in page.Player_Def.stat) {
       		if (!page.Player.stat[i]) {
       			page.Player.stat[i] = 0;
+      		}
+    	}
+  	}
+
+  	get_caract()
+	{
+		let val = null;
+		let id = null;
+		var page = this;
+
+		$( "#caract_def > li > input" ).each(function( index ) {
+			val = parseInt($(this).val(), 10);
+			id = $(this).attr('id');
+			if (isNaN(val)) {
+					delete page.Player_Def.caract[id];
+					delete page.Player.caract[id];
+			} else {
+				page.Player_Def.caract[id] = val;
+			}
+		});
+
+		for (var i in page.Player_Def.caract) {
+      		if (!page.Player.caract[i]) {
+      			page.Player.caract[i] = 0;
       		}
     	}
   	}

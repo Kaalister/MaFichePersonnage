@@ -11,7 +11,6 @@ h1 {
 }
 
 input {
-	width: 10%;
 	background-color: transparent;
     border: none;
 }
@@ -28,7 +27,8 @@ li:before{
 .go_right {
 	display: inline-block;
 	float: right;
-	margin-right: 15%;
+	width: 50%;
+	min-width: 365px;
 }
 
 .material-icons:hover {
@@ -59,21 +59,46 @@ li:before{
 /*	END PAGE START CSS	*/
 
 /*	PAGE PERSO CSS	*/
-#pv, #psm {
-	width: 5%;
+.caract_input {
+	width: 15%;
+	min-width: 40px;
 	border-bottom: none;
 	margin: 0px;
 }
 
-#avatar, #avatar_def {
-	float: right;
-	margin-right: 7rem;
+#bio {
+	display: inline-block;
 }
 
-#nom {
+#nom, #name_def {
 	text-align: center;
-	margin-right: 7rem;
 }
+
+.info_avatar {
+	width: 50%;
+	float: right;
+}
+
+.img_avatar {
+	width: 50%;
+	float: left;
+}
+
+#avatar {
+	float: left;
+}
+
+.input_nbr {
+    width: 10%;
+    min-width: 40px;
+}
+
+.info_name_input {
+	width: 20%;
+    min-width: 55px;
+    text-align: center;
+}
+
 /*	END PAGE PERSO CSS	*/
 
 /*	PAGE EDIT CSS	*/
@@ -93,7 +118,7 @@ li:before{
 }
 
 .desc_input {
-	width: 26rem;
+	width: 60%;
 	text-align: center;
 }
 
@@ -102,9 +127,5 @@ li:before{
     border-radius: 1rem;
     color: white;
     padding: 0.5rem;
-}
-
-.marge_top {
-	margin-top: 3rem;
 }
 /*	END PAGE EDIT CSS	*/

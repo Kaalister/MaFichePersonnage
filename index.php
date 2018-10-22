@@ -12,7 +12,7 @@
 	<body>
 		<i class="material-icons small" id="edit_button">edit</i>
 		<i class="material-icons small" id="back_button">arrow_back</i>
-		<center><h1>Le monde de Ctulhu</h1></center>
+		<center><h1 id="title_global">Ma fiche Personnage</h1></center>
 		<?php require('html/page_start.html'); ?>
 		<?php require('html/page_perso.html'); ?>
 		<?php require('html/page_edit.html'); ?>

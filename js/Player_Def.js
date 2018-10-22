@@ -5,8 +5,7 @@ class Player_Def {
 		this.lastName = player.lastName;
 		this.age = player.age;
 		this.competences = player.competences
-		this.pv = player.pv;
-		this.psm = player.psm;
+		this.caract = player.caract;
 		this.stat = player.stat;
 		this.bio = player.bio;
 		this.work = player.work;
@@ -37,8 +36,19 @@ class Player_Def {
 			var desc = jQuery("#new_value_stat").val();
 			if (name != null && desc != null && name != "" && name != "Nom") {
 				jQuery("#new_name_stat").val("Nom");
-				jQuery("#new_value_stat").empty();
+				jQuery("#new_value_stat").val('');
 				this.add_new_stat(name, desc);
+			}
+		});
+
+		tmp = jQuery("#new_caract_def");
+		tmp.on('click', () => {
+			var name = jQuery("#new_name_caract").val();
+			var desc = jQuery("#new_value_caract").val();
+			if (name != null && desc != null && name != "" && name != "Nom") {
+				jQuery("#new_name_caract").val("Nom");
+				jQuery("#new_value_caract").val('');
+				this.add_new_caract(name, desc);
 			}
 		});
 
@@ -80,5 +90,15 @@ class Player_Def {
 		this.stat[name] = desc;
 		html_added = "<li>" + name.toUpperCase() +" : <input type='number' class='browser-default input_stat' id='" + name + "' min='0' value='" + desc + "'></li>";
 		jQuery("#stats_def").append(html_added);
+	}
+
+	add_new_caract(name, desc)
+	{
+		var html_added = "";
+
+		desc = parseInt(desc, 10)
+		this.caract[name] = desc;
+		html_added = "<li>" + name.toUpperCase() +" : <input type='number' class='browser-default' id='" + name + "' min='0' value='" + desc + "'></li>";
+		jQuery("#caract_def").append(html_added);
 	}
 }

@@ -35,6 +35,20 @@ function do_stat_list(list, src_page = null)
 	return resultat;
 }
 
+function do_caract_list(list, src_page = null)
+{
+	var resultat = "";
+		for (var i in list.Player_Def.caract) {
+			if (list.Player_Def.caract.hasOwnProperty(i)) {
+					if  (src_page == "page_perso")
+						resultat += "<li>" + i.toUpperCase() +" : <input type='number' class='browser-default caract_input' id='" + i + "' min='0' value='" + (list.Player_Def.caract[i] + list.Player.caract[i]) + "' max='" + list.Player_Def.caract[i] + "'></li>";
+					else if (src_page == "page_edit")
+						resultat += "<li>" + i.toUpperCase() +" : <input type='number' class='browser-default caract_input' id='" + i + "' min='0' value='" + list.Player_Def.caract[i] + "'></li>";
+			}
+	}
+	return resultat;
+}
+
 function convert_to_string(txt)
 {
 	var regex = /<br>/gi;

@@ -2,8 +2,8 @@
   "Player_Def": {
     "competences": {
     },
-    "pv": 20,
-    "psm": 20,
+    "caract": {
+    },
     "firstName": "Prénom",
     "lastName": "Nom",
     "age": "0",
@@ -14,8 +14,8 @@
     "desc": "Description"
   },
   "Player": {
-    "pv": 0,
-    "psm": 0,
+    "caract": {
+    },
     "stat": {
     }
   }

@@ -57,9 +57,11 @@ class Page
 			reader.onload = function() {
 				var obj = JSON.parse(reader.result);
 				page.load_save(obj);
-				page.generate_perso_page();
-				page.toggle_content("perso");
 			};
+			reader.addEventListener("load", function () {
+    			page.generate_perso_page();
+				page.toggle_content("perso");
+  			}, false);
 		});
 
 		tmp = jQuery("#new_perso");

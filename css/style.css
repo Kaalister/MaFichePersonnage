@@ -1,3 +1,5 @@
+/*	GLOBAL CSS	*/
+
 body {
 	background-image: url(../images/background.jpg);
 	background-size: 100%;
@@ -14,24 +16,8 @@ input {
     border: none;
 }
 
-.shadow_in {
-	box-shadow: inset 0px 0px 5px #353535;
-}
-
-.shadow_out {
-	box-shadow: inset 0px 0px 5px #353535;
-}
-
-.input_stat {
-	width: 5% !important;
-	border-bottom: none !important;
-	margin: 0px !important;
-}
-
-#pv, #psm {
-	width: 5%;
-	border-bottom: none;
-	margin: 0px;
+li:before{
+	content: "- ";
 }
 
 .go_left {
@@ -45,6 +31,62 @@ input {
 	margin-right: 15%;
 }
 
+.material-icons:hover {
+	cursor: pointer;
+}
+
+.btn {
+	background: #80513a;
+}
+
+.btn:hover {
+	background: #a9694a;
+}
+/*	END GLOBAL CSS	*/
+
+/*	PAGE START CSS	*/
+#edit_button, #back_button {
+	float: right;
+    color: white;
+    background: #80513a;
+    border-radius: 1em;
+    padding: 1rem
+}
+
+#start_button {
+	margin-top: 20%;
+}
+/*	END PAGE START CSS	*/
+
+/*	PAGE PERSO CSS	*/
+#pv, #psm {
+	width: 5%;
+	border-bottom: none;
+	margin: 0px;
+}
+
+#avatar, #avatar_def {
+	float: right;
+	margin-right: 7rem;
+}
+
+#nom {
+	text-align: center;
+	margin-right: 7rem;
+}
+/*	END PAGE PERSO CSS	*/
+
+/*	PAGE EDIT CSS	*/
+.shadow_out {
+	box-shadow: inset 0px 0px 5px #353535;
+}
+
+.input_stat {
+	width: 5% !important;
+	border-bottom: none !important;
+	margin: 0px !important;
+}
+
 .name_input {
 	width: 6rem;
 	text-align: center;
@@ -55,23 +97,6 @@ input {
 	text-align: center;
 }
 
-.material-icons:hover {
-	cursor: pointer;
-}
-
-#edit_button, #back_button {
-	float: right;
-    color: white;
-    background: #80513a;
-    border-radius: 1em;
-    padding: 1rem
-}
-
-#avatar, #avatar_def {
-	float: right;
-	margin-right: 7rem;
-}
-
 .add_button {
 	background-color: #80513a;
     border-radius: 1rem;
@@ -79,27 +104,7 @@ input {
     padding: 0.5rem;
 }
 
-li:before{
-	content: "- ";
-}
-
 .marge_top {
 	margin-top: 3rem;
 }
-
-#nom {
-	text-align: center;
-	margin-right: 7rem;
-}
-
-#start_button {
-	margin-top: 20%;
-}
-
-.btn {
-	background: #80513a;
-}
-
-.btn:hover {
-	background: #a9694a;
-}
+/*	END PAGE EDIT CSS	*/

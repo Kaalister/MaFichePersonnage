@@ -1,5 +1,4 @@
 /*	GLOBAL CSS	*/
-
 body {
 	background-image: url(../images/background.jpg);
 	background-size: 100%;
@@ -41,6 +40,11 @@ li:not(.li_item):before{
 
 .btn:hover {
 	background: #a9694a;
+}
+
+.full_width {
+	width: 100%;
+	display: inline-block;
 }
 /*	END GLOBAL CSS	*/
 

@@ -18,14 +18,17 @@ class Player {
 			var name = $("#new_name_item").val();
 			var desc = $("#new_desc_item").val();
 			var nb = $("#new_nb_item").val();
+
+			if (desc == "Description")
+				desc = "";
 			if (name != "" && name != null && nb != "" && nb != null) {
 				var item = new Item(desc, nb);
 				this.inventory[name] = item;
 				jQuery("#inventory").empty();
 				jQuery("#inventory").append(do_inventory_list(this.inventory));
 				this.set_listener_on_inventory(this.inventory);
-				$("#new_name_item").val("");
-				$("#new_desc_item").val("");
+				$("#new_name_item").val("Nom");
+				$("#new_desc_item").val("Description");
 				$("#new_nb_item").val("");
 			}
 		});
@@ -52,17 +55,17 @@ class Player {
 	//fonction qui set les listeners sur les remove de chaque item
 	set_listener_on_inventory(inventory)
 	{
+		var regex = /['"() \[\]]/gi;
 		for (var i in inventory) {
 			if (inventory.hasOwnProperty(i)) {
 				let tmp = null;
 
-				tmp = jQuery("#remove_" + i);
+				tmp = jQuery("#remove_" + i.replace(regex, '_'));
 				tmp.data("owner", i);
 				tmp.on('click', () => {
 						delete inventory[tmp.data("owner")];
 						jQuery("#inventory").empty();
 						jQuery("#inventory").append(do_inventory_list(this.inventory));
-						console.log(this.inventory);
 						this.set_listener_on_inventory(this.inventory);
 				});
 			}

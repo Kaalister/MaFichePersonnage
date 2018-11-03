@@ -77,8 +77,8 @@ class Player_Def {
 		var html_added = "";
 
 		this.competences[name] = desc;
-		html_added = "<input type='text' class='browser-default name_input' id='" + name + "_name' value='" + name + "'/> : "
-		html_added += "<input type='text' class='browser-default desc_input' id='" + name + "_desc' value='" + desc + "'/><br>"
+		html_added = "<input type='text' class='browser-default name_input shadow_in' id='" + name + "_name' value='" + name + "'/> : "
+		html_added += "<input type='text' class='browser-default desc_input shadow_in' style='margin-top : 1rem;' id='" + name + "_desc' value='" + desc.replace(/\'/gi, " ") + "'/><br>"
 		jQuery("#competences_def").append(html_added);
 	}
 
@@ -98,7 +98,7 @@ class Player_Def {
 
 		desc = parseInt(desc, 10)
 		this.caract[name] = desc;
-		html_added = "<li>" + name.toUpperCase() +" : <input type='number' class='browser-default' id='" + name + "' min='0' value='" + desc + "'></li>";
+		html_added = "<li>" + name.toUpperCase() +" : <input type='number' class='browser-default caract_input' id='" + name + "' min='0' value='" + desc + "'></li>";
 		jQuery("#caract_def").append(html_added);
 	}
 }

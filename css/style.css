@@ -3,6 +3,7 @@ body {
 	background-image: url(../images/background.jpg);
 	background-size: 100%;
 	margin: 32px;
+	font-size: 1.4rem;
 }
 
 h1 {
@@ -12,15 +13,21 @@ h1 {
 input {
 	background-color: transparent;
     border: none;
+    height: 2.1rem;
 }
 
 li:not(.li_item):before{
 	content: "- ";
 }
 
+li > input {
+    font-size: 1.3rem !important;
+}
+
 .go_left {
 	display: inline-block;
 	width: 50%;
+	min-height: 240px;
 }
 
 .go_right {
@@ -60,6 +67,19 @@ li:not(.li_item):before{
 #start_button {
 	margin-top: 20%;
 }
+
+#help, #no_help {
+	cursor: pointer;
+}
+
+#help {
+	color: #885c41;
+    border-color: #885c41;
+}
+
+#no_help {
+    color: #885c41;
+}
 /*	END PAGE START CSS	*/
 
 /*	PAGE PERSO CSS	*/
@@ -88,8 +108,14 @@ li:not(.li_item):before{
 	float: left;
 }
 
-#avatar {
-	float: left;
+#avatar, #avatar_def {
+	display: block;
+	margin-right: auto;
+	margin-left: auto; 
+}
+
+#avatar_def {
+	cursor: pointer;
 }
 
 .input_nbr {
@@ -115,7 +141,7 @@ li:not(.li_item):before{
 }
 
 #new_nb_item {
-	width: 45px;
+	width: 61px;
 	height: 2rem;
 }
 
@@ -128,7 +154,7 @@ li:not(.li_item):before{
 }
 
 .nb_item {
-	width: 45px;
+	width: 53px;
 }
 
 .case {
@@ -136,9 +162,10 @@ li:not(.li_item):before{
     border: black !important;
     border-width: 2px !important;
     border-style: solid !important;
-    height: 1.6rem !important;
+    height: 2.2rem !important;
     margin-left: -1px;
     text-align: center;
+    margin-top: 0.6rem;
 }
 /*	END PAGE PERSO CSS	*/
 
@@ -147,8 +174,11 @@ li:not(.li_item):before{
 	box-shadow: inset 0px 0px 5px #353535;
 }
 
+.shadow_in {
+	box-shadow: 0px 0px 6px 1px #353535;
+}
 .input_stat {
-	width: 5% !important;
+	width: 40px !important;
 	border-bottom: none !important;
 	margin: 0px !important;
 }
@@ -168,5 +198,29 @@ li:not(.li_item):before{
     border-radius: 1rem;
     color: white;
     padding: 0.5rem;
+    margin-top: 0.9rem;
 }
 /*	END PAGE EDIT CSS	*/
+
+@media all and (max-width: 1150px)
+{
+	.go_left {
+		display: block;
+		width: 100%;
+	}
+
+	.go_right {
+		display: block;
+		width: 100%;
+		min-width: 365px;
+	}
+
+	#new_desc_item {
+		width: 45%;
+		height: 2rem;
+	}
+
+	.desc_item {
+		width: 45%;
+	}
+}

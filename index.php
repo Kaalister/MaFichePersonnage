@@ -12,6 +12,9 @@
 	<body>
 		<i class="material-icons small" id="edit_button">edit</i>
 		<i class="material-icons small" id="back_button">arrow_back</i>
+		<i class="material-icons small" id="help">help</i>
+		<i class="material-icons small" id="no_help" style="display: none;">help_outline</i>
+		<?php require('html/help_page.html'); ?>
 		<center><h1 id="title_global">Ma fiche Personnage</h1></center>
 		<?php require('html/page_start.html'); ?>
 		<?php require('html/page_perso.html'); ?>

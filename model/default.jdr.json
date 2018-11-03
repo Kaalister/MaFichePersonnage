@@ -1,22 +1,25 @@
 {
-  "Player_Def": {
-    "competences": {
+    "Player": {
+        "caract": {
+        },
+        "stat": {
+        },
+        "inventory": {
+        }
     },
-    "caract": {
-    },
-    "firstName": "Prénom",
-    "lastName": "Nom",
-    "age": "0",
-    "work": "Travail/Type/Role",
-    "bio": "Biographie",
-    "stat": {
-    },
-    "desc": "Description"
-  },
-  "Player": {
-    "caract": {
-    },
-    "stat": {
+    "Player_Def": {
+        "firstName": "",
+        "lastName":"",
+        "age":0,
+        "competences": {
+        },
+        "caract": {
+        },
+        "stat": {
+        },
+        "bio":"",
+        "work":"",
+        "desc":"",
+        "avatar":""
     }
-  }
 }

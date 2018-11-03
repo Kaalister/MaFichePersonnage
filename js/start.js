@@ -16,6 +16,7 @@ class Page
 				jQuery("#edit_button").hide();
 				jQuery("#page_edit").hide();
 				jQuery("#back_button").hide();
+				this.toggle_help(false);
 			break;
 			case "perso" :
 				jQuery("#page_perso").fadeIn("fast");
@@ -23,6 +24,7 @@ class Page
 				jQuery("#start_page").hide();
 				jQuery("#page_edit").hide();
 				jQuery("#back_button").hide();
+				this.toggle_help(false);
 			break;
 			case "edit" :
 				jQuery("#page_perso").hide();
@@ -30,7 +32,27 @@ class Page
 				jQuery("#edit_button").hide();
 				jQuery("#page_edit").fadeIn("fast");
 				jQuery("#back_button").fadeIn("fast");
+				this.toggle_help(false);
 			break;
+		}
+	}
+
+	toggle_help(help = false)
+	{
+		if (help == true) {
+			$("#help").hide();
+			$("#no_help").fadeIn("fast");
+			if (jQuery("#start_page").css('display') != 'none' && jQuery("#start_page").css("visibility") != "hidden") {
+				$("#start_help").fadeIn("fast");
+			} else if (jQuery("#page_edit").css('display') != 'none' && jQuery("#page_edit").css("visibility") != "hidden") {
+				$("#edit_help").fadeIn("fast");
+			} else if (jQuery("#page_perso").css('display') != 'none' && jQuery("#page_perso").css("visibility") != "hidden") {
+				$("#perso_help").fadeIn("fast");
+			}
+		} else {
+			$("#help").fadeIn("fast");
+			$("#no_help").hide();
+			$(".help_content").hide();
 		}
 	}
 
@@ -40,6 +62,7 @@ class Page
 		var page = this;
 
 		this.toggle_content("start");
+		this.toggle_help(false);
 
 		//permet de lancer la demande de ficher
 		tmp = jQuery("#open_save");
@@ -99,6 +122,18 @@ class Page
 			var txt = JSON.stringify(page);
 			download(page.Player_Def.firstName + page.Player_Def.lastName + ".jdr.json", txt);
 		});
+
+		//affiche aide lorsque l'on appuie sur help
+		tmp = jQuery("#help");
+		tmp.on('click', () => {
+			this.toggle_help(true);
+		});
+
+		//cache l'aide lorsque l'on appuie sur help
+		tmp = jQuery("#no_help");
+		tmp.on('click', () => {
+			this.toggle_help(false);
+		});
 	}
 
 	//function qui récupère le contenu du Json
@@ -156,6 +191,7 @@ class Page
 	clear_page_perso()
 	{
 		jQuery("#competences").empty();
+		jQuery("#inventory").empty();
 		jQuery("#caract").empty();
 		jQuery("#nom").empty();
 		jQuery("#bio").empty();

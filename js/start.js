@@ -63,7 +63,8 @@ class Page
 
 		this.toggle_content("start");
 		this.toggle_help(false);
-
+		this.windows_size();
+		
 		//permet de lancer la demande de ficher
 		tmp = jQuery("#open_save");
 		tmp.on('click', () => {
@@ -162,7 +163,7 @@ class Page
 		if (this.Player_Def.avatar)
 			jQuery("#avatar").attr('src', this.Player_Def.avatar);
 		else
-			jQuery("#avatar").attr('src', '../images/avatar.png');
+			jQuery("#avatar").attr('src', '../images/avatar.jpg');
 		jQuery("#inventory").append(do_inventory_list(this.Player.inventory));
 		this.Player.set_listener_on_inventory(this.Player.inventory);
 	}
@@ -184,7 +185,7 @@ class Page
 		if (page.Player_Def.avatar)
 		 	jQuery("#avatar_def").attr('src', page.Player_Def.avatar);
 		else
-		 	jQuery("#avatar_def").attr('src', '../images/avatar.png');
+		 	jQuery("#avatar_def").attr('src', '../images/avatar.jpg');
 	}
 
 	//vide le code html de la page perso
@@ -294,6 +295,14 @@ class Page
       			page.Player.caract[i] = 0;
       		}
     	}
+  	}
+
+  	windows_size()
+  	{
+  		var windows_height = $(window).height();
+  		var main_height = windows_height - 600;
+
+  		$('#main').css('min-height', main_height);
   	}
 }
 

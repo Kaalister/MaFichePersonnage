@@ -15,6 +15,7 @@ class Player_Def {
 		this.init();
 	}
 
+	//main function when page edit is visible
 	init()
 	{
 		var tmp = null;
@@ -72,6 +73,7 @@ class Player_Def {
 		});
 	}
 
+	//add new skills in html list
 	add_new_comp(name, desc)
 	{
 		var html_added = "";
@@ -82,6 +84,7 @@ class Player_Def {
 		jQuery("#competences_def").append(html_added);
 	}
 
+	//add new statistics in html list
 	add_new_stat(name, desc)
 	{
 		var html_added = "";
@@ -92,6 +95,7 @@ class Player_Def {
 		jQuery("#stats_def").append(html_added);
 	}
 
+	//add new caracteristics in html list
 	add_new_caract(name, desc)
 	{
 		var html_added = "";

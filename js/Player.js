@@ -12,7 +12,7 @@ class Player {
 	{
 		var tmp = null;
 
-		//listener sur le bouton création de d'item
+		//listener on add item button
 		tmp = jQuery("#new_item");
 		tmp.on('click', () => {
 			var name = $("#new_name_item").val();
@@ -32,7 +32,7 @@ class Player {
 		});
 	}
 
-	//fonction qui set les listener des stats players après leur ajout en html
+	//add listener on stats
 	set_listener_on_stat(list)
 	{
 		for (var i in list.Player_Def.stat) {
@@ -50,7 +50,7 @@ class Player {
 		}
 	}
 
-	//fonction qui set les listeners sur les remove de chaque item
+	//add listener on each items of inventory
 	set_listener_on_inventory(inventory)
 	{
 		var regex = /['"() \[\]]/gi;
@@ -70,7 +70,7 @@ class Player {
 		}
 	}
 
-	//fonction qui set les listener des caract players après leur ajout en html
+	//set the listener on caracteristics
 	set_listener_on_caract(list)
 	{
 		for (var i in list.Player_Def.caract) {
@@ -88,7 +88,7 @@ class Player {
 		}
 	}
 
-	//fonction qui sauvegarde l'inventaire avant le telechargement du fichier
+	//save the inventory in Perso class
 	save_inventory()
 	{
 		var Player = this;

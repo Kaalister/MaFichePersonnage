@@ -252,7 +252,7 @@ class Page
 		this.Player_Def.desc = jQuery("#desc_def").val();
 	}
 
-	//function that take competancies and complete it
+	//function that take skills and complete it
 	get_competencies()
 	{
 		var page = this;

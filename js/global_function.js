@@ -1,3 +1,4 @@
+//create list of skills in perso page
 function do_list(list)
 {
 	var resultat = "";
@@ -9,6 +10,7 @@ function do_list(list)
 	return resultat;
 }
 
+//create list of skills in edit page
 function do_list_edit(list)
 {
 	var resultat = "";
@@ -21,6 +23,7 @@ function do_list_edit(list)
 	return resultat;
 }
 
+//create list of stats
 function do_stat_list(list, src_page = null)
 {
 	var resultat = "";
@@ -35,6 +38,7 @@ function do_stat_list(list, src_page = null)
 	return resultat;
 }
 
+//create list of inventory in perso page
 function do_inventory_list(list)
 {
 	var resultat = "";
@@ -48,6 +52,7 @@ function do_inventory_list(list)
 	return resultat;
 }
 
+//create list of caract
 function do_caract_list(list, src_page = null)
 {
 	var resultat = "";
@@ -62,6 +67,7 @@ function do_caract_list(list, src_page = null)
 	return resultat;
 }
 
+//convert ligne break in html to string (<br> -> \n)
 function convert_to_string(txt)
 {
 	var regex = /<br>/gi;
@@ -69,6 +75,7 @@ function convert_to_string(txt)
 	return txt;
 }
 
+//convert ligne break in string to html (\n -> <br>)
 function convert_to_html(txt)
 {
 	var regex = /\n/gi;

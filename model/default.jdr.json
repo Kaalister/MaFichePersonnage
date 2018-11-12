@@ -10,7 +10,7 @@
     "Player_Def": {
         "firstName": "",
         "lastName":"",
-        "age":0,
+        "age":"",
         "competences": {
         },
         "caract": {

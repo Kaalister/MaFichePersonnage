@@ -8,11 +8,12 @@
 				<p id="name_def">
 					<input type="text" class='browser-default info_name_input shadow_out' id="prenom_def" placeholder="Prénom">
 					<input type="text" class='browser-default info_name_input shadow_out' id="nom_def" placeholder="Nom"> ,
-					<input type="number" class='browser-default input_nbr shadow_out' id="age_def"><br>
+					<input type="number" class='browser-default input_nbr shadow_out' id="age_def" placeholder="age" pattern="\d*"><br>
 					<input type="text" class='browser-default desc_input shadow_out' id="work_def" placeholder="métier/race/type" style="margin-top: 1rem;">
 				</p>
-				<input type="text" class='browser-default name_input shadow_out' id="new_name_caract" value="Nom">
- 				<input type="number" class='browser-default shadow_out' id="new_value_caract" placeholder="Valeur" style="text-align: center;">
+				<h5>Caracteristiques :</h5>
+				<input type="text" class='browser-default name_input shadow_out' id="new_name_caract" placeholder="Nom">
+ 				<input type="number" class='browser-default shadow_out' id="new_value_caract" placeholder="Valeur" style="text-align: center;" pattern="\d*">
  				<i class="material-icons tiny add_button" id="new_caract_def">add</i>
 				<div id="caract_def">
 				</div>
@@ -20,8 +21,8 @@
 	</div>
 	<div class="go_left">
 		<h5>Compétences :</h5>
-		<input type="text" class='browser-default name_input shadow_out' id="new_name_comp" value="Nom"> :
-		<input type="text" class='browser-default desc_input shadow_out' id="new_desc_comp" value="Decription">
+		<input type="text" class='browser-default name_input shadow_out' id="new_name_comp" placeholder="Nom"> :
+		<input type="text" class='browser-default desc_input shadow_out' id="new_desc_comp" placeholder="Decription">
 		<i class="material-icons tiny add_button" id="new_competence_def">add</i><br>
 		<div id="competences_def" style="padding-left: 2%">
  		</div>
@@ -30,8 +31,8 @@
  	<textarea class='browser-default shadow_in' id="bio_def" style="height: 140px; width: 100%;"></textarea>
  	<p>
  		<h5>Stats :</h5>
- 		<input type="text" class='browser-default name_input shadow_out' id="new_name_stat" value="Nom">
- 		<input type="number" class='browser-default shadow_out' id="new_value_stat" placeholder="Valeur" style="text-align: center;">
+ 		<input type="text" class='browser-default name_input shadow_out' id="new_name_stat" placeholder="Nom">
+ 		<input type="number" class='browser-default shadow_out' id="new_value_stat" placeholder="Valeur" style="text-align: center;" pattern="\d*">
  		<i class="material-icons tiny add_button" id="new_stat_def">add</i>
  		<ul id="stats_def">
  		</ul>

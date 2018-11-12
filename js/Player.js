@@ -19,16 +19,14 @@ class Player {
 			var desc = $("#new_desc_item").val();
 			var nb = $("#new_nb_item").val();
 
-			if (desc == "Description")
-				desc = "";
 			if (name != "" && name != null && nb != "" && nb != null) {
 				var item = new Item(desc, nb);
 				this.inventory[name] = item;
 				jQuery("#inventory").empty();
 				jQuery("#inventory").append(do_inventory_list(this.inventory));
 				this.set_listener_on_inventory(this.inventory);
-				$("#new_name_item").val("Nom");
-				$("#new_desc_item").val("Description");
+				$("#new_name_item").val("");
+				$("#new_desc_item").val("");
 				$("#new_nb_item").val("");
 			}
 		});

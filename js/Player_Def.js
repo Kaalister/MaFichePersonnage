@@ -23,9 +23,9 @@ class Player_Def {
 		tmp.on('click', () => {
 			var name = jQuery("#new_name_comp").val();
 			var desc = jQuery("#new_desc_comp").val();
-			if (name != null && desc != null && name != "" && desc != "" && name != "Nom" && desc != "Description") {
-				jQuery("#new_name_comp").val("Nom");
-				jQuery("#new_desc_comp").val("Description");
+			if (name != null && desc != null && name != "" && desc != "") {
+				jQuery("#new_name_comp").val("");
+				jQuery("#new_desc_comp").val("");
 				this.add_new_comp(name, desc);
 			}
 		});
@@ -35,7 +35,7 @@ class Player_Def {
 			var name = jQuery("#new_name_stat").val();
 			var desc = jQuery("#new_value_stat").val();
 			if (name != null && desc != null && name != "" && name != "Nom") {
-				jQuery("#new_name_stat").val("Nom");
+				jQuery("#new_name_stat").val("");
 				jQuery("#new_value_stat").val('');
 				this.add_new_stat(name, desc);
 			}
@@ -46,7 +46,7 @@ class Player_Def {
 			var name = jQuery("#new_name_caract").val();
 			var desc = jQuery("#new_value_caract").val();
 			if (name != null && desc != null && name != "" && name != "Nom") {
-				jQuery("#new_name_caract").val("Nom");
+				jQuery("#new_name_caract").val("");
 				jQuery("#new_value_caract").val('');
 				this.add_new_caract(name, desc);
 			}

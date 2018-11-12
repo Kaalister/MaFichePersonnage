@@ -70,14 +70,14 @@ li > input {
 #header {
 	background: url(../images/top.jpg);
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: 100% 300px;
 	height: 300px;
 }
 
 #main {
 	background: url(../images/mid.jpg);
 	background-repeat-x: no-repeat;
-	background-size: 100% 300px;
+	background-size: 100%;
 }
 
 #footer {
@@ -217,10 +217,12 @@ li > input {
 /*	PAGE EDIT CSS	*/
 .shadow_out {
 	box-shadow: inset 0px 0px 5px #353535;
+	-webkit-box-shadow: inset 0px 0px 5px #353535;
 }
 
 .shadow_in {
 	box-shadow: 0px 0px 6px 1px #353535;
+	-webkit-box-shadow: 0px 0px 5px #353535;
 }
 .input_stat {
 	width: 40px !important;

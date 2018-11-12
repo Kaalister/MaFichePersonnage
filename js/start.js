@@ -7,6 +7,7 @@ class Page
 		this.init();
 	}
 	
+	//function to make appear and disapper pages
 	toggle_content(page)
 	{
 		switch (page) {
@@ -37,6 +38,7 @@ class Page
 		}
 	}
 
+	//function to make appear and disapper help
 	toggle_help(help = false)
 	{
 		if (help == true) {
@@ -56,23 +58,24 @@ class Page
 		}
 	}
 
+	//main function
 	init()
 	{
 		var tmp;
 		var page = this;
 
-		this.toggle_content("start");
-		this.toggle_help(false);
-		this.windows_size();
+		this.toggle_content("start");	//
+		this.toggle_help(false);		//	initialization
+		this.windows_size();			//
 		
-		//permet de lancer la demande de ficher
+		//start the file search
 		tmp = jQuery("#open_save");
 		tmp.on('click', () => {
 			jQuery("#take_save").click();
 		});
 
 
-		//lance la lecture du ficher envoyé
+		//read file upload
 		tmp = jQuery("#take_save");
 		tmp.on('change', () => {
 			var file = $("#take_save").prop("files")[0];
@@ -88,7 +91,7 @@ class Page
   			}, false);
 		});
 
-		//ouvre le profil défault pour créer un nouveau personnage
+		//open default profil user
 		tmp = jQuery("#new_perso");
 		tmp.on('click', () => {
 			var txt = null;
@@ -99,7 +102,7 @@ class Page
 			});
 		});
 
-		//ouvre le mode edition
+		//open edition mode
 		tmp = jQuery("#edit_button");
 		tmp.on('click', () => {
 			this.clear_page_perso();
@@ -107,7 +110,7 @@ class Page
 			this.toggle_content("edit");
 		});
 
-		//reviens à la page principale
+		//back to main page
 		tmp = jQuery("#back_button");
 		tmp.on('click', () => {
 			this.save_edition();
@@ -116,45 +119,50 @@ class Page
 			this.toggle_content("perso");
 		});
 		
-		//lance télécharge le fichier de sauvgarde
+		//start download 
 		tmp = jQuery("#save_btn");
 		tmp.on('click', () => {
 			this.Player.save_inventory();
-			var txt = JSON.stringify(page);
-			download(page.Player_Def.firstName + page.Player_Def.lastName + ".jdr.json", txt);
+			var text = JSON.stringify(page);
+			var blob = new Blob([text], {type: "application/octet-stream"});
+			var name = page.Player_Def.firstName + page.Player_Def.lastName;
+
+			if (page.Player_Def.firstName == "" && page.Player_Def.lastName == "")
+				name = "MaFichePersonnage";
+			saveAs(blob, name + ".jdr.json" );
 		});
 
-		//affiche aide lorsque l'on appuie sur help
+		//show help
 		tmp = jQuery("#help");
 		tmp.on('click', () => {
 			this.toggle_help(true);
 		});
 
-		//cache l'aide lorsque l'on appuie sur help
+		//hide help
 		tmp = jQuery("#no_help");
 		tmp.on('click', () => {
 			this.toggle_help(false);
 		});
 	}
 
-	//function qui récupère le contenu du Json
+	//function that retrieves the content of Json file
 	load_save(obj)
 	{
 		this.Player_Def = new Player_Def(obj.Player_Def);
 		this.Player = new Player(obj.Player, this.Player_Def);
 	}
 
-	//génère le code html de la page perso
+	//generate html for page perso
 	generate_perso_page()
 	{
-		jQuery("#title_global").text(this.Player_Def.firstName + " " + this.Player_Def.lastName);
+		if ( this.Player_Def.firstName != "" && this.Player_Def.lastName != "")
+			jQuery("#title_global").text(this.Player_Def.firstName + " " + this.Player_Def.lastName);
+		else 
+			jQuery("#title_global").text("Ma Fiche Personnage");
 		jQuery("#competences").append(do_list(this.Player_Def.competences));
 		jQuery("#caract").append(do_caract_list(this, "page_perso"));
 		this.Player.set_listener_on_caract(this);
-		var name = this.Player_Def.firstName +
-					" " + this.Player_Def.lastName +
-					", " + this.Player_Def.age + " ans" + "<br>"
-					+ this.Player_Def.work;
+		var name = this.create_identity();
 		jQuery("#nom").append(name);
 		jQuery("#bio").append("<h5>Bio :</h5>" + convert_to_html(this.Player_Def.bio));
 		jQuery("#stats").append(do_stat_list(this, "page_perso"));
@@ -168,11 +176,14 @@ class Page
 		this.Player.set_listener_on_inventory(this.Player.inventory);
 	}
 
-	//genere le code html de la page edit
+	//generate html for page edit
 	generate_edit_page()
 	{
 		var page = this;
-		jQuery("#title_global").text(this.Player_Def.firstName + " " + this.Player_Def.lastName);
+		if ( this.Player_Def.firstName != "" && this.Player_Def.lastName != "")
+			jQuery("#title_global").text(this.Player_Def.firstName + " " + this.Player_Def.lastName);
+		else 
+			jQuery("#title_global").text("Ma Fiche Personnage");
 		jQuery("#competences_def").append(do_list_edit(this.Player_Def.competences));
 		jQuery("#caract_def").append(do_caract_list(this, "page_edit"));
 		jQuery("#prenom_def").attr('value', page.Player_Def.firstName);
@@ -188,7 +199,24 @@ class Page
 		 	jQuery("#avatar_def").attr('src', '../images/avatar.jpg');
 	}
 
-	//vide le code html de la page perso
+	//function return identity text for html
+	create_identity()
+	{
+		var name = "";
+
+		if (this.Player_Def.firstName != "")
+			name += this.Player_Def.firstName + " ";
+		if (this.Player_Def.lastName != "")
+			name += this.Player_Def.lastName;
+		if (this.Player_Def.age && name != "")
+			name += ", " + this.Player_Def.age + " ans" + "<br>"
+		if (this.Player_Def.work)
+			name += this.Player_Def.work;
+
+		return name;
+	}
+
+	//empty html code for page pero
 	clear_page_perso()
 	{
 		jQuery("#competences").empty();
@@ -200,7 +228,7 @@ class Page
 		jQuery("#desc").empty();
 	}
 
-	//vide le code html de la page perso
+	//empty html code for page edit
 	clear_page_edit()
 	{
 		jQuery("#competences_def").empty();
@@ -210,7 +238,7 @@ class Page
 		jQuery("#desc_def").empty();
 	}
 
-	//function qui va set et suppr les données
+	//function that set and delete data
 	save_edition()
 	{
 		this.Player_Def.firstName = jQuery("#prenom_def").val();
@@ -224,6 +252,7 @@ class Page
 		this.Player_Def.desc = jQuery("#desc_def").val();
 	}
 
+	//function that take competancies and complete it
 	get_competencies()
 	{
 		var page = this;
@@ -249,6 +278,7 @@ class Page
 		});
 	}
 
+	//function that take stats and complete it
 	get_stats()
 	{
 		let val = null;
@@ -273,6 +303,7 @@ class Page
     	}
   	}
 
+	//function that take caracteristics and complete it
   	get_caract()
 	{
 		let val = null;
@@ -297,6 +328,7 @@ class Page
     	}
   	}
 
+  	//function that set height minimum of main part of the windows
   	windows_size()
   	{
   		var windows_height = $(window).height();

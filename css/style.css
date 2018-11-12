@@ -144,12 +144,12 @@ li > input {
 }
 
 .info_avatar {
-	width: 50%;
+	width: calc(100% - 200px);
 	float: right;
 }
 
 .img_avatar {
-	width: 50%;
+	width: 180px;
 	float: left;
 }
 
@@ -233,6 +233,7 @@ li > input {
 .name_input {
 	width: 6rem;
 	text-align: center;
+	margin-left: 1rem;
 }
 
 .desc_input {
@@ -246,6 +247,11 @@ li > input {
     color: white;
     padding: 0.5rem;
     margin-top: 0.9rem;
+}
+
+#caract_def {
+	margin-left: 1rem;
+	margin-top: 0px;
 }
 /*	END PAGE EDIT CSS	*/
 

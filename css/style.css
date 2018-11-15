@@ -253,6 +253,12 @@ li > input {
 	margin-left: 1rem;
 	margin-top: 0px;
 }
+
+#logo_edit {
+    position: absolute;
+    margin-left: 70px;
+    top: 400px;
+}
 /*	END PAGE EDIT CSS	*/
 
 @media all and (max-width: 1150px)

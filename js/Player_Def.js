@@ -53,7 +53,7 @@ class Player_Def {
 			}
 		});
 
-		tmp = jQuery("#avatar_def");
+		tmp = jQuery("#avatar_def, #logo_edit");
 		tmp.on('click', () => {
 			jQuery("#new_avatar").click();
 		});

@@ -332,9 +332,20 @@ class Page
   	windows_size()
   	{
   		var windows_height = $(window).height();
-  		var main_height = windows_height - 600;
+  		var header_height = $("#header").height();
+  		var footer_height = $("#footer").height();
+  		var main_height = windows_height - (header_height + footer_height);
 
   		$('#main').css('min-height', main_height);
+  		$('#main').css('top', header_height);
+
+  		(function($){
+			$(window).on("load",function(){
+				$("body").mCustomScrollbar({
+					theme:'minimal'
+				});
+			});
+		})(jQuery);
   	}
 }
 

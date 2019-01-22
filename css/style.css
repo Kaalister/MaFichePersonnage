@@ -4,11 +4,13 @@
         url("../fonts/CloisterBlack.ttf") format("opentype");
 }
 
-/*	GLOBAL CSS	*/
-html {
-
+@font-face {
+ font-family: "immortal";
+ src: url("../fonts/IMMORTAL.ttf") format("opentype"),
+        url("../fonts/IMMORTAL.ttf") format("opentype");
 }
 
+/*	GLOBAL CSS	*/
 body {
 	font-size: 1.4rem;
 }
@@ -90,15 +92,15 @@ li > input {
 }
 
 .page {
-	margin-right: 36px;
-	margin-left: 36px;
+	margin-right: 5%;
+	margin-left: 5%;
 	padding-top: 36px;
 	padding-bottom: 36px; 
 }
 
 #title_global {
 	text-align: center;
-    margin-top: 86px;
+    padding-top: 150px;
     font-style: italic;
     font-size: 5rem;
 }
@@ -106,34 +108,23 @@ li > input {
 textarea {
     border: none;
 }
+
+.btn_color {
+	color: #fff;
+	background-color: #381200; 
+}
+
+.btn_color:hover {
+	background-color: #a9694a;
+}
 /*	END GLOBAL CSS	*/
 
 /*	PAGE START CSS	*/
 #edit_button, #back_button {
 	float: right;
-    color: white;
-    background: #8c3207;
     border-radius: 1em;
     padding: 1rem;
     margin: 32px;
-}
-
-#new_perso, #open_save {
-	background-color: #381200; 
-}
-
-#help, #no_help {
-	cursor: pointer;
-	margin: 32px;
-}
-
-#help {
-	color: #fff;
-    border-color: #fff;
-}
-
-#no_help {
-    color: #fff;
 }
 /*	END PAGE START CSS	*/
 
@@ -226,11 +217,13 @@ textarea {
 
 /*	PAGE EDIT CSS	*/
 .shadow_out {
+	-webkit-appearance: none;
 	box-shadow: inset 0px 0px 5px #353535;
 	-webkit-box-shadow: inset 0px 0px 5px #353535;
 }
 
 .shadow_in {
+	-webkit-appearance: none;
 	box-shadow: 0px 0px 6px 1px #353535;
 	-webkit-box-shadow: 0px 0px 5px #353535;
 }
@@ -252,9 +245,7 @@ textarea {
 }
 
 .add_button {
-	background-color: #381200;
     border-radius: 1rem;
-    color: white;
     padding: 0.5rem;
     margin-top: 0.9rem;
 }
@@ -269,7 +260,41 @@ textarea {
     margin-left: 70px;
     margin-top: -145px;
 }
+
+textarea {
+	overflow: hidden !important;
+}
 /*	END PAGE EDIT CSS	*/
+/*	PAGE help CSS	*/
+#help_pannel {
+	color: white;
+	font-family: immortal, sans-serif;
+	background: url(../images/back_help.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.help_content {
+	padding: 20px;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+#help, #no_help {
+	position: absolute;
+	cursor: pointer;
+	margin-top: 32px;
+	margin-left: 32px;
+}
+
+#help {
+	color: #fff;
+}
+
+#no_help {
+    color: white;
+}
+/*	END PAGE help CSS	*/
 
 @media all and (max-width: 1150px)
 {

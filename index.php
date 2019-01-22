@@ -11,12 +11,14 @@
 	</head>
 
 	<body>
-		<div id="header">
-			<i class="material-icons small" id="edit_button">edit</i>
-			<i class="material-icons small" id="back_button">arrow_back</i>
-			<i class="material-icons small" id="help">help</i>
+		<div id="help_pannel">
 			<i class="material-icons small" id="no_help" style="display: none;">help_outline</i>
 			<?php require('html/help_page.html'); ?>
+		</div>
+		<div id="header">
+			<i class="material-icons small btn_color" id="edit_button">edit</i>
+			<i class="material-icons small btn_color" id="back_button">arrow_back</i>
+			<i class="material-icons small" id="help">help</i>
 			<h1 id="title_global">Ma Fiche Personnage</h1>
 		</div>
 		<div id="main">
@@ -24,7 +26,7 @@
 			<?php require('html/page_perso.html'); ?>
 			<?php require('html/page_edit.html'); ?>
 		</div>
-		<div id="footer"></div>
+		<!-- <div id="footer"></div> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	 	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>

@@ -46,7 +46,7 @@ function do_inventory_list(list)
 
 		for (var i in list) {
 			if (list.hasOwnProperty(i)) {
-				resultat += "<li class='li_item'><div class='case name_item browser-default' id='name_item'>" + i +"</div><div class='case desc_item browser-default' id='desc_item'>" + list[i].desc + "</div><input type='number' class='case nb_item browser-default' id='nb_item' min='0' value='" + list[i].nb + "'><i class='material-icons tiny add_button' id='remove_" + i.replace(regex, '_') + "'>remove</i></li>";
+				resultat += "<li class='li_item'><div class='case name_item browser-default' id='name_item'>" + i +"</div><div class='case desc_item browser-default' id='desc_item'>" + list[i].desc + "</div><input type='number' class='case nb_item browser-default' id='nb_item' min='0' value='" + list[i].nb + "'><i class='material-icons tiny add_button btn_color' id='remove_" + i.replace(regex, '_') + "'>remove</i></li>";
 			}
 	}
 	return resultat;

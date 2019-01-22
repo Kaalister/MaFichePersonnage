@@ -43,16 +43,16 @@ class Page
 	{
 		if (help == true) {
 			$("#help").hide();
-			$("#no_help").fadeIn("fast");
+			$("#no_help").fadeIn("slow");
 			if (jQuery("#start_page").css('display') != 'none' && jQuery("#start_page").css("visibility") != "hidden") {
-				$("#start_help").fadeIn("fast");
+				$("#start_help").fadeIn("slow");
 			} else if (jQuery("#page_edit").css('display') != 'none' && jQuery("#page_edit").css("visibility") != "hidden") {
-				$("#edit_help").fadeIn("fast");
+				$("#edit_help").fadeIn("slow");
 			} else if (jQuery("#page_perso").css('display') != 'none' && jQuery("#page_perso").css("visibility") != "hidden") {
-				$("#perso_help").fadeIn("fast");
+				$("#perso_help").fadeIn("slow");
 			}
 		} else {
-			$("#help").fadeIn("fast");
+			$("#help").fadeIn("slow");
 			$("#no_help").hide();
 			$(".help_content").hide();
 		}
@@ -155,7 +155,7 @@ class Page
 	//generate html for page perso
 	generate_perso_page()
 	{
-		if ( this.Player_Def.firstName != "" && this.Player_Def.lastName != "")
+		if ( this.Player_Def.firstName != "" || this.Player_Def.lastName != "")
 			jQuery("#title_global").text(this.Player_Def.firstName + " " + this.Player_Def.lastName);
 		else 
 			jQuery("#title_global").text("Ma Fiche Personnage");
@@ -180,7 +180,7 @@ class Page
 	generate_edit_page()
 	{
 		var page = this;
-		if ( this.Player_Def.firstName != "" && this.Player_Def.lastName != "")
+		if ( this.Player_Def.firstName != "" || this.Player_Def.lastName != "")
 			jQuery("#title_global").text(this.Player_Def.firstName + " " + this.Player_Def.lastName);
 		else 
 			jQuery("#title_global").text("Ma Fiche Personnage");
@@ -342,6 +342,9 @@ class Page
   		(function($){
 			$(window).on("load",function(){
 				$("body").mCustomScrollbar({
+					theme:'minimal'
+				});
+				$("textarea").mCustomScrollbar({
 					theme:'minimal'
 				});
 			});

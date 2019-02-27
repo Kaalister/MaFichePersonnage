@@ -1,8 +1,9 @@
 <html lang="fr">
 	
 	<head>
-		<meta charset="utf-8">
-		<title>Fiche preso</title>
+		<meta charset="utf-8"/>
+		<meta name="google-site-verification" content="5p2qPjrd4NRAXXSwhZ_4bIp9gpehsU3q2k0BeKHILnI"/>
+		<title>Fiche perso</title>
 		<link rel="icon" href="images/avatar.ico"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<link rel="stylesheet" href="css/style.css">

@@ -95,7 +95,7 @@ class Page
 		tmp = jQuery("#new_perso");
 		tmp.on('click', () => {
 			var txt = null;
-			$.getJSON('../model/default.jdr.json', function( data ) {
+			$.getJSON('../model/default.json', function( data ) {
    				 page.load_save(data);
    				 page.generate_edit_page();
    				 page.toggle_content("edit");
@@ -129,7 +129,7 @@ class Page
 
 			if (page.Player_Def.firstName == "" && page.Player_Def.lastName == "")
 				name = "MaFichePersonnage";
-			saveAs(blob, name + ".jdr.json" );
+			saveAs(blob, name + ".json" );
 		});
 
 		//show help
